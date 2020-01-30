@@ -14,3 +14,11 @@ REACT_APP_OKTA_CLIENT_ID=<YOUR CLIENT ID HERE>
 3. Run `npm install`
 
 4. Run `npm start`
+
+## Deployment
+
+Deployment is a bit trickier, for now. You will have to update okta for your client/server endpoints and make sure that the application login page is set to. Also, you will need to override the cors origins. Something like this:
+
+```
+ORIGINS_ALLOWED=https://festive-perlman-7b1f7e.netlify.com
+```

@@ -22,7 +22,9 @@ Note that you will need to add your domain to the authorized list, including loc
 First create a .env file with some required settings
 
 ```
-
+OKTA_OAUTH2_ISSUER=https://**********.okta.com/oauth2/default
+OKTA_CLIENT_ID=**********
+API_ENDPOINT=http://localhost:8080
 ```
 
 Run in Docker

@@ -43,3 +43,20 @@ TODO
 ## Customizing
 
 This app skeleton also bundles Material UI, because it looks great and is well [documented](https://material.io/components/cards/#actions)
+
+## Hasura Roles (In progress)
+
+* namespace => 
+* x-hasura-default-role: "user" => This is the default role if the user is un-authenticated
+* x-hasura-allowed-roles:  => These are the roles that the user has
+
+| type | value  |
+|---|---|
+| namespace | https://hasura.io/jwt/claims  |
+| x-hasura-default-role | "user" |
+| x-hasura-allowed-roles  |  ["editor","user", "mod"] |
+
+Read more here:
+* https://docs.hasura.io/1.0/graphql/manual/auth/authentication/jwt.html
+* https://developer.okta.com/docs/guides/customize-tokens-returned-from-okta/add-custom-claim/
+* https://developer.okta.com/docs/guides/build-self-signed-jwt/java/overview/

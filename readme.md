@@ -2,12 +2,14 @@
 
 This project serves as a basic template for building modern [3 Factor Apps](https://3factor.app/) with some of my favorite tools.
 
-Acronyms are hard,This is a sample architecture that combines...
+Acronyms are hard, this is a sample architecture that combines...
 
 - Kotlin (Spring)
 - React (Apollo client)
 - Okta (auth and identity)
 - GraphQL (Hasura + Postgres)
+
+Uh, it has other stuff too but yeah, acronyms are hard.
 
 ## Setup
 
@@ -37,3 +39,7 @@ open http://localhost:3000
 ## Running in production
 
 TODO
+
+## Customizing
+
+This app skeleton also bundles Material UI, because it looks great and is well [documented](https://material.io/components/cards/#actions)

@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import { withAuth } from '@okta/okta-react'
 import Auth from './Auth'
+import { Button, Card, CardContent, Typography } from '@material-ui/core'
 
 export default withAuth(
   class Home extends Component {
@@ -37,25 +38,36 @@ export default withAuth(
     }
 
     render () {
-      if (this.state.authenticated === null) return null
-      return this.state.authenticated ? (
-        <div>
-          <p>Now you should be able to retrieve data from the server...</p>
-          <h2>No group required</h2>
-          <Auth method='name' />
-          <h2>Admin group required</h2>
-          <Auth method='claims' />
-          <button onClick={this.logout}>Logout</button>
+      return (<React.Fragment>
+        <div hidden={!!this.state.authenticated}>
+          <p>You aren't logged in, so we expect 2 failures below: </p>
+          <Button onClick={this.login} color="primary">Login</Button>
         </div>
-      ) : (
-        <div>
-          <p>You aren't logged in, so this should fail</p>
-          <h2>No group required</h2>
-          <Auth method='name' />
-          <h2>Admin group required</h2>
-          <Auth method='claims' />><button onClick={this.login}>Login</button>
+        <div hidden={!this.state.authenticated}>
+          <p>You are logged in, so the first call should work...and maybe the second. </p>
+          <Button onClick={this.logout} color="secondary">Logout</Button>
         </div>
-      )
+        <div>
+          <Card variant="outlined" p={4}>
+            <CardContent>
+              <Typography color="textSecondary" gutterBottom>
+                Basic Authentication Check - No Group Required
+              </Typography>
+              <Auth method='name' />
+            </CardContent>
+          </Card>
+          <br/>
+          <Card variant="outlined">
+            <CardContent>
+              <Typography color="textSecondary" gutterBottom>
+                Authentication required, part of "Admin" group
+              </Typography>
+              <Auth method='claims' />
+            </CardContent>
+          </Card>
+        </div>
+        <br/>
+      </React.Fragment>)
     }
   }
 )

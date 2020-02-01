@@ -3,13 +3,13 @@ services:
   www:
     build:
       context: www
+      args:
+        - REACT_APP_OKTA_OAUTH2_ISSUER=${OKTA_OAUTH2_ISSUER}
+        - REACT_APP_OKTA_CLIENT_ID=${OKTA_CLIENT_ID}
+        - REACT_APP_API_ENDPOINT=${API_ENDPOINT}
+        - REACT_APP_GRAPHQL_ENDPOINT=${GRAPHQL_ENDPOINT}
     ports:
       - "3000:3000"
-    environment:
-      - REACT_APP_OKTA_OAUTH2_ISSUER=${OKTA_OAUTH2_ISSUER}
-      - REACT_APP_OKTA_CLIENT_ID=${OKTA_CLIENT_ID}
-      - REACT_APP_API_ENDPOINT=${API_ENDPOINT}
-      - REACT_APP_GRAPHQL_ENDPOINT=${GRAPHQL_ENDPOINT}
   api:
     build:
       context: api
